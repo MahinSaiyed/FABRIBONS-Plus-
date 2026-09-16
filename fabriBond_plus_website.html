@@ -1,0 +1,2895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>FabriBond Plus | Vulcanized Repair Paper</title>
+  <style>
+    :root {
+      --navy: #071b35;
+      --navy2: #0c2948;
+      --gold: #e7a400;
+      --gold2: #ffc12a;
+      --red: #e12626;
+      --green: #16a34a;
+      --text: #12233b;
+      --muted: #5b6878;
+      --line: #dfe6ee;
+      --shadow: 0 12px 35px rgba(7, 27, 53, .12);
+      --shadow2: 0 6px 18px rgba(7, 27, 53, .10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: none
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      overflow-x: hidden
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto
+    }
+
+    header {
+      border-bottom: 4px solid #e3e3e3;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 3px 18px rgba(0, 0, 0, .08)
+    }
+
+    .nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px
+    }
+
+    .logo {
+      height: 52px;
+      width: auto;
+      object-fit: contain
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 42px;
+      font-weight: 700;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .navlinks a {
+      padding: 25px 0;
+      position: relative
+    }
+
+    .nav-indicator {
+      position: absolute;
+      bottom: 13px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: left 0.35s cubic-bezier(0.25, 1, 0.5, 1), width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      pointer-events: none;
+    }
+
+    .store-btn,
+    .gold-btn,
+    .outline-btn,
+    .send-btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: .25s;
+      box-shadow: var(--shadow2);
+      font-weight: 800
+    }
+
+    .store-btn {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 20px
+    }
+
+    .store-btn:hover,
+    .gold-btn:hover,
+    .send-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(7, 27, 53, .2)
+    }
+
+    .hero {
+      position: relative;
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(100deg, #fff 0%, #f6f9fb 58%, #eef4f7 100%)
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(90deg, rgba(255, 255, 255, .92), rgba(255, 255, 255, .35)), url("images/bg-img-for-web.png");
+      background-position: center;
+      opacity: .10
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1.12fr;
+      align-items: center;
+      gap: 20px;
+      padding: 65px 0
+    }
+
+    .badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: var(--navy);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      box-shadow: var(--shadow2)
+    }
+
+    .badge i {
+      width: 10px;
+      height: 10px;
+      background: var(--gold2);
+      border-radius: 50%
+    }
+
+    .type-title {
+      font-size: 58px;
+      line-height: 1.02;
+      margin: 18px 0 12px;
+      font-weight: 900;
+      letter-spacing: -2px
+    }
+
+    .type-title span {
+      color: var(--gold)
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      font-size: 17px;
+      line-height: 1.65;
+      color: #23334a
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 25px;
+      flex-wrap: wrap
+    }
+
+    .gold-btn {
+      background: linear-gradient(135deg, #ffd044, #e7a400);
+      padding: 15px 22px;
+      color: #111
+    }
+
+    .outline-btn {
+      background: #fff;
+      border: 1px solid #ccd5df;
+      padding: 14px 21px;
+      color: var(--navy)
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .model {
+      width: min(470px, 95%);
+      height: 450px;
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, #eef3f6, #fff)
+    }
+
+    .model:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("images/bg-img-for-web.png");
+      background-size: cover;
+      background-position: center;
+      opacity: .9
+    }
+
+    .product-float {
+      position: absolute;
+      width: 270px;
+      right: 5%;
+      bottom: 45px;
+      border-radius: 16px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, .22);
+      animation: float 4s ease-in-out infinite;
+      overflow: hidden;
+      border: 3px solid #e7a400
+    }
+
+    .product-float img {
+      width: 100%;
+      display: block
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1deg)
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(1deg)
+      }
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: var(--gold);
+      vertical-align: -5px;
+      margin-left: 5px;
+      animation: blink .8s infinite
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0
+      }
+    }
+
+    .stats {
+      margin-top: -35px;
+      position: relative;
+      z-index: 5
+    }
+
+    .stats-box {
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid #e7edf3;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 18px
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 24px;
+      border-right: 1px solid #dce3ea
+    }
+
+    .stat:last-child {
+      border-right: 0
+    }
+
+    .stat-icon {
+      font-size: 30px
+    }
+
+    .stat strong {
+      font-size: 22px
+    }
+
+    .stat small {
+      display: block;
+      color: var(--muted);
+      margin-top: 3px
+    }
+
+    section {
+      padding: 75px 0
+    }
+
+    .section-title {
+      font-size: 34px;
+      font-weight: 900;
+      margin-bottom: 12px
+    }
+
+    .section-title span {
+      color: var(--gold)
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 35px;
+      align-items: center
+    }
+
+    .about-text {
+      line-height: 1.8;
+      color: #425166
+    }
+
+    .about-img {
+      width: 100%;
+      height: 330px;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid #e3e9ef;
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 15px;
+    }
+
+    .use-box {
+      margin-top: 35px;
+      padding: 25px;
+      border: 1px solid #e1e7ee;
+      border-radius: 16px;
+      box-shadow: var(--shadow2)
+    }
+
+    .use-box h3 {
+      font-size: 25px;
+      margin-bottom: 22px
+    }
+
+    .use-box h3 span {
+      color: var(--gold)
+    }
+
+    .use-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 14px
+    }
+
+    .use-item {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .use-icon {
+      width: 56px;
+      height: 56px;
+      margin: auto auto 8px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 25px
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr 1.15fr;
+      gap: 15px;
+      margin-top: 15px
+    }
+
+    .info-card {
+      padding: 24px;
+      border-radius: 15px;
+      border: 1px solid #e1e7ee;
+      box-shadow: var(--shadow2);
+      background: #fff
+    }
+
+    .info-card h3 {
+      margin-bottom: 14px
+    }
+
+    .check {
+      display: block;
+      margin: 9px 0;
+      font-size: 14px;
+      line-height: 1.35
+    }
+
+    .check:before {
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      width: 19px;
+      height: 19px;
+      background: #18b35c;
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 900;
+      margin-right: 8px
+    }
+
+    .warning {
+      background: #fff5f5;
+      border-color: #ffd4d4
+    }
+
+    .warning h3 {
+      color: #c92222
+    }
+
+    .warning strong {
+      display: block;
+      font-size: 18px;
+      margin: 12px 0
+    }
+
+    .warning strong span {
+      color: #d21d1d
+    }
+
+    .review-section {
+      background: linear-gradient(#fff, #fbfcfd)
+    }
+
+    .review-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 22px
+    }
+
+    .review-track {
+      display: flex;
+      gap: 18px;
+      overflow: hidden;
+      padding: 8px 3px
+    }
+
+    .review-card {
+      flex: 0 0 calc((100% - 54px)/4);
+      background: #fff;
+      border: 1px solid #e1e7ee;
+      border-radius: 13px;
+      padding: 20px;
+      box-shadow: 0 9px 24px rgba(7, 27, 53, .13);
+      min-height: 170px
+    }
+
+    .stars {
+      color: #f3aa00;
+      letter-spacing: 2px;
+      margin-bottom: 10px
+    }
+
+    .review-card p {
+      font-size: 14px;
+      line-height: 1.45;
+      color: #455468;
+      min-height: 68px
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e7a400, #071b35);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900
+    }
+
+    .person small {
+      display: block;
+      color: #718096
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr;
+      gap: 20px
+    }
+
+    .contact-info {
+      background: var(--navy);
+      color: #fff;
+      padding: 28px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      background-image: radial-gradient(circle at 80% 20%, rgba(231, 164, 0, .14), transparent 35%)
+    }
+
+    .contact-info h2 {
+      font-size: 30px
+    }
+
+    .contact-info p {
+      color: #b9c8d8;
+      margin: 5px 0 25px
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 13px;
+      margin: 20px 0
+    }
+
+    .contact-row .ico {
+      font-size: 21px
+    }
+
+    .contact-row b {
+      display: block
+    }
+
+    .contact-row small {
+      color: #c5d1dd
+    }
+
+    .form-card {
+      background: #fff;
+      padding: 28px;
+      border: 1px solid #e0e7ee;
+      border-radius: 15px;
+      box-shadow: var(--shadow)
+    }
+
+    .field {
+      margin-bottom: 14px
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 6px
+    }
+
+    .required {
+      color: #d52323
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #d5dee8;
+      border-radius: 9px;
+      padding: 12px 13px;
+      outline: none;
+      background: #fff;
+      box-shadow: inset 0 2px 5px rgba(7, 27, 53, .04), 0 3px 12px rgba(7, 27, 53, .06);
+      transition: .2s
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #e7a400;
+      box-shadow: 0 0 0 3px rgba(231, 164, 0, .14), 0 6px 18px rgba(7, 27, 53, .08)
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical
+    }
+
+    .phone-row {
+      display: grid;
+      grid-template-columns: 125px 1fr;
+      gap: 9px
+    }
+
+    .send-btn {
+      width: 100%;
+      background: #10a957;
+      color: #fff;
+      padding: 14px;
+      margin-top: 3px
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 10px;
+      color: #7b8795;
+      margin-top: 8px
+    }
+
+    .form-error {
+      display: none;
+      background: #fff0f0;
+      border: 1px solid #ffc8c8;
+      color: #b91c1c;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 13px
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px
+    }
+
+    .video-card {
+      background: #fff;
+      border: 1px solid #e0e7ee;
+      border-radius: 13px;
+      padding: 10px;
+      box-shadow: var(--shadow2)
+    }
+
+    .video-card h4 {
+      padding: 4px 3px 10px
+    }
+
+    .video-card video {
+      width: 100%;
+      border-radius: 8px;
+      background: #0b1625;
+      aspect-ratio: 16/9;
+      display: block
+    }
+
+    .video-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 9px
+    }
+
+    .video-actions button {
+      flex: 1;
+      border: 1px solid #d7e0e9;
+      background: #fff;
+      border-radius: 8px;
+      padding: 9px;
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    footer {
+      border-top: 1px solid #e2e7ed;
+      background: #fff;
+      padding: 38px 0 18px
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 25px;
+      align-items: start
+    }
+
+    .footer-brand img {
+      width: 180px
+    }
+
+    .footer-brand p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #64748b;
+      margin-top: 12px
+    }
+
+    .footer-col h4 {
+      margin-bottom: 12px
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: #526174;
+      margin: 9px 0
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px
+    }
+
+    .social {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800
+    }
+
+    .ig {
+      background: #e1306c
+    }
+
+    .wa {
+      background: #25d366
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #e7ebef;
+      margin-top: 25px;
+      padding-top: 15px;
+      font-size: 11px;
+      color: #7b8794
+    }
+
+    .whatsapp {
+      position: fixed !important;
+      right: 18px !important;
+      bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+      z-index: 9999 !important;
+      width: 58px !important;
+      height: 58px !important;
+      border-radius: 50% !important;
+      background: #25d366 !important;
+      color: #fff !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .28) !important;
+      animation: pulse 2.2s infinite !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: transform .25s ease, box-shadow .25s ease !important;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.08) !important;
+      box-shadow: 0 12px 32px rgba(37, 211, 102, .5) !important;
+    }
+
+    .whatsapp svg {
+      width: 32px !important;
+      height: 32px !important;
+      fill: #fff !important;
+      display: block !important;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 10px 28px rgba(0, 0, 0, .25)
+      }
+
+      50% {
+        box-shadow: 0 10px 35px rgba(37, 211, 102, .45)
+      }
+    }
+
+    /* Nav actions & Hamburger button */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: #f4f7fa;
+      border: 1px solid #dbe3eb;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 10px;
+      transition: .25s ease;
+    }
+
+    .hamburger:hover {
+      background: #e8eff7;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background: var(--navy);
+      border-radius: 3px;
+      transition: transform .3s, opacity .3s, width .3s;
+    }
+
+    .hamburger span:nth-child(1) {
+      width: 22px
+    }
+
+    .hamburger span:nth-child(2) {
+      width: 16px
+    }
+
+    .hamburger span:nth-child(3) {
+      width: 22px
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+      width: 22px
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      width: 0
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+      width: 22px
+    }
+
+    /* Fullscreen Mobile Navigation Menu */
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: rgba(7, 27, 53, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 100000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 22px 36px 22px;
+      box-sizing: border-box;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-100%);
+      transition: opacity .32s cubic-bezier(.16, 1, .3, 1), transform .32s cubic-bezier(.16, 1, .3, 1), visibility .32s;
+    }
+
+    .mobile-nav.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .mobile-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .mobile-nav-brand .brand-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: .5px;
+    }
+
+    .mobile-nav-brand .brand-plus {
+      color: var(--gold);
+    }
+
+    .mobile-nav-close {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .2s ease;
+      line-height: 1;
+    }
+
+    .mobile-nav-close:hover,
+    .mobile-nav-close:active {
+      background: var(--gold);
+      color: var(--navy);
+      transform: rotate(90deg);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: auto 0;
+      padding: 20px 0;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all .22s ease;
+      text-decoration: none;
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link:active {
+      background: rgba(231, 164, 0, 0.2);
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateX(6px);
+    }
+
+    .mobile-nav-link.mobile-store-link {
+      background: linear-gradient(135deg, #e7a400 0%, #ffc12a 100%);
+      color: #071b35;
+      border: none;
+      font-weight: 800;
+      margin-top: 6px;
+      box-shadow: 0 8px 20px rgba(231, 164, 0, .25);
+    }
+
+    .mobile-nav-link.mobile-store-link:hover {
+      transform: translateY(-2px);
+      color: #071b35;
+    }
+
+    .mobile-nav-footer {
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      text-align: center;
+    }
+
+    .mobile-nav-phone {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      text-decoration: none;
+    }
+
+    .mobile-nav-phone:hover {
+      color: var(--gold);
+    }
+
+    .mobile-nav-tagline {
+      font-size: 11px;
+      color: #8fa0b5;
+      letter-spacing: .3px;
+    }
+
+    @media(max-width:1000px) {
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero-card {
+        min-height: 380px
+      }
+
+      .model {
+        height: 380px
+      }
+
+      .use-grid {
+        grid-template-columns: repeat(4, 1fr)
+      }
+
+      .review-card {
+        flex-basis: calc((100% - 36px)/3)
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:768px) {
+      .hamburger {
+        display: flex
+      }
+
+      .navlinks {
+        display: none
+      }
+
+      .store-btn {
+        display: none
+      }
+
+      .nav {
+        height: 62px
+      }
+
+      .logo {
+        height: 45px
+      }
+
+      .hero-grid {
+        padding: 45px 0
+      }
+
+      .type-title {
+        font-size: 45px
+      }
+
+      .hero-copy {
+        font-size: 15px
+      }
+
+      .stats-box {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .stat {
+        border-right: 0;
+        border-bottom: 1px solid #e2e8ef;
+        padding: 13px 10px
+      }
+
+      .stat:nth-child(odd) {
+        border-right: 1px solid #e2e8ef
+      }
+
+      .stat:nth-last-child(-n+2) {
+        border-bottom: 0
+      }
+
+      .about-grid {
+        gap: 20px
+      }
+
+      .three-grid,
+      .video-grid {
+        grid-template-columns: 1fr
+      }
+
+      .review-card {
+        flex-basis: calc((100% - 18px)/2)
+      }
+
+      section {
+        padding: 55px 0
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:480px) {
+      .container {
+        width: 92%
+      }
+
+      .type-title {
+        font-size: 39px;
+        letter-spacing: -1px
+      }
+
+      .hero-card {
+        min-height: 300px
+      }
+
+      .model {
+        height: 300px
+      }
+
+      .product-float {
+        width: 205px;
+        right: 2%;
+        bottom: 25px
+      }
+
+      .hero-actions>* {
+        width: 100%
+      }
+
+      .use-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .review-card {
+        flex-basis: 100%
+      }
+
+      .review-track {
+        overflow: hidden
+      }
+
+      .phone-row {
+        grid-template-columns: 105px 1fr
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr
+      }
+
+      .footer-brand img {
+        width: 170px
+      }
+
+      .whatsapp {
+        right: 14px;
+        bottom: 14px;
+        width: 54px;
+        height: 54px
+      }
+    }
+
+    .video-open-btn {
+      display: block;
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px 18px;
+      text-align: center;
+      text-decoration: none;
+      background: #0b1625;
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid #d9a441;
+      transition: all .25s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+    }
+
+    .video-open-btn:hover {
+      background: #d9a441;
+      color: #0b1625;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+    }
+
+    .b2b {
+      background: #111;
+      color: #fff;
+    }
+
+    .b2b .kicker {
+      color: var(--gold);
+
+    }
+
+    .b2b .section-head p {
+      color: #bfc1c5;
+    }
+
+    .business-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .business-card {
+      padding: 27px 22px;
+      border: 1px solid #2e3034;
+      border-radius: 20px;
+      background: #17181b;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .16);
+      transition: .3s;
+    }
+
+    .business-card:hover {
+      transform: translateY(-5px);
+      border-color: #555;
+    }
+
+    .business-icon {
+      font-size: 27px;
+      margin-bottom: 13px;
+    }
+
+    .business-card h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .business-card p {
+      color: #bfc1c5;
+      font-size: 14px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #0b1b33;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
+
+    .socials svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: #d9a441;
+    }
+
+    .socials a:hover svg {
+      stroke: #0b1b33;
+    }
+
+    /* nav translatation button */
+    .language-btn {
+      position: relative;
+      top: auto;
+      right: auto;
+      transform: none;
+      padding: 9px 14px;
+      border: 1px solid #d9a441;
+      border-radius: 8px;
+      background: #0b1625;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+      transition: all .25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .language-btn:hover {
+      background: #d9a441;
+      color: #0b1625;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .22);
+    }
+
+    /* Language Selection Popup */
+
+    .language-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 20px;
+    }
+
+    .language-overlay.show {
+      display: flex;
+    }
+
+    .language-popup {
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.30);
+      animation: languagePopupIn .25s ease;
+    }
+
+    .language-popup h2 {
+      margin: 0 0 24px;
+      color: #0b1625;
+      font-size: 22px;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .language-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .language-option {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #dfe3e8;
+      border-radius: 10px;
+      background: #fff;
+      color: #0b1625;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all .25s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
+    }
+
+    .language-option:hover {
+      transform: translateY(-2px);
+      border-color: #d9a441;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .14);
+    }
+
+    .language-option.active {
+      background: #0b1625;
+      color: #fff;
+      border-color: #d9a441;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+    }
+
+    .language-popup-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .language-popup-actions button {
+      min-width: 90px;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+
+    #languageCancel {
+      background: #fff;
+      color: #0b1625;
+      border: 1px solid #cfd5dc;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .10);
+    }
+
+    #languageCancel:hover {
+      transform: translateY(-2px);
+      background: #f3f5f7;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .16);
+    }
+
+    #languageOk {
+      background: #0b1625;
+      color: #fff;
+      border: 1px solid #d9a441;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+    }
+
+    #languageOk:hover {
+      transform: translateY(-2px);
+      background: #d9a441;
+      color: #0b1625;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .22);
+    }
+
+    @keyframes languagePopupIn {
+      from {
+        opacity: 0;
+        transform: scale(.94);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width:480px) {
+      .language-popup {
+        padding: 22px;
+        max-width: calc(100% - 10px);
+      }
+
+      .language-popup h2 {
+        font-size: 19px;
+      }
+
+      .language-option {
+        padding: 13px 14px;
+        font-size: 15px;
+      }
+    }
+
+    /* Mobile & Tablet Responsiveness */
+    @media (max-width: 900px) {
+      .business-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 16px !important;
+      }
+
+      .business-card {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 22px 16px !important;
+        border-radius: 18px !important;
+        min-width: 0 !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex !important;
+      }
+
+      .navlinks {
+        display: none !important;
+      }
+
+      .store-btn {
+        display: none !important;
+      }
+
+      .nav {
+        height: 64px !important;
+      }
+
+      .logo {
+        height: 42px !important;
+      }
+
+      .nav-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+
+      .language-btn {
+        padding: 7px 11px !important;
+        font-size: 12px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav {
+        height: 60px !important;
+      }
+
+      .logo {
+        height: 38px !important;
+      }
+
+      .language-btn {
+        padding: 6px 9px !important;
+        font-size: 11.5px !important;
+        border-radius: 7px !important;
+      }
+
+      .hamburger {
+        width: 36px !important;
+        height: 36px !important;
+      }
+
+      .business-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+      }
+
+      .business-card {
+        padding: 18px 12px !important;
+        border-radius: 14px !important;
+      }
+
+      .business-icon {
+        font-size: 26px !important;
+        margin-bottom: 10px !important;
+      }
+
+      .business-card h3 {
+        font-size: 16px !important;
+        margin-bottom: 6px !important;
+      }
+
+      .business-card p {
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+      }
+
+      .whatsapp {
+        right: 16px !important;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+        width: 54px !important;
+        height: 54px !important;
+      }
+
+      .whatsapp svg {
+        width: 30px !important;
+        height: 30px !important;
+      }
+    }
+
+    /* Mobile Hero Spacing & Layout Fix */
+    @media (max-width: 1000px) {
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+      }
+
+      .hero-card {
+        margin-top: 20px !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        gap: 40px !important;
+        padding: 40px 0 30px !important;
+      }
+
+      .hero-actions {
+        margin-top: 24px !important;
+        margin-bottom: 10px !important;
+        gap: 12px !important;
+      }
+
+      .hero-card {
+        margin-top: 30px !important;
+        min-height: 360px !important;
+        position: relative !important;
+      }
+
+      .model {
+        height: 350px !important;
+        max-width: 440px !important;
+        margin: 0 auto !important;
+      }
+
+      .product-float {
+        bottom: 20px !important;
+        right: 4% !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-grid {
+        gap: 36px !important;
+        padding: 30px 0 25px !important;
+      }
+
+      .hero-actions {
+        margin-top: 22px !important;
+        margin-bottom: -50px !important;
+        gap: 12px !important;
+      }
+
+      .hero-actions>* {
+        width: 100% !important;
+      }
+
+      .hero-card {
+        margin-top: 35px !important;
+        min-height: 330px !important;
+        position: relative !important;
+      }
+
+      .model {
+        width: 100% !important;
+        max-width: 350px !important;
+        height: 290px !important;
+        border-radius: 20px !important;
+        margin: 0 auto !important;
+      }
+
+      .product-float {
+        width: 185px !important;
+        right: 2% !important;
+        bottom: 15px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <div class="container nav">
+      <a href="#home"><img class="logo"
+          src="/images/Nav-logo-image.png" alt="FabriBond Plus"></a>
+      <nav class="navlinks"><a class="active" href="#home">Home</a><a href="#about">About</a><a href="#contact">Contact
+          Us</a><span class="nav-indicator" id="navIndicator"></span></nav>
+      <div class="nav-actions">
+        <button id="languageBtn" class="language-btn" type="button" aria-label="Select Language">
+          🌐 Language
+        </button>
+        <a class="store-btn" href="https://Saiyedwebcoders.netlify.app" target="_blank">🌐 Our Company Website</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Fullscreen Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <div class="mobile-nav-header">
+        <div class="mobile-nav-brand">
+          <span class="brand-title">FABRIBOND <span class="brand-plus">PLUS</span></span>
+        </div>
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu" type="button">
+          ✕
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#contact" class="mobile-nav-link">Contact Us</a>
+        <a href="https://Saiyedwebcoders.netlify.app" target="_blank" class="mobile-nav-link mobile-store-link">🌐 Our
+          Company Website</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="tel:+918347874084" class="mobile-nav-phone">📞 +91 83478 74084</a>
+        <p class="mobile-nav-tagline">Professional Cloth Repair Solution</p>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Language Selection Popup -->
+  <div id="languageOverlay" class="language-overlay">
+    <div class="language-popup">
+
+      <h2>Select any language you're comfortable with</h2>
+
+      <div class="language-options">
+
+        <button class="language-option active" data-language="en" type="button">
+          English
+        </button>
+
+        <button class="language-option" data-language="hi" type="button">
+          हिंदी
+        </button>
+
+        <button class="language-option" data-language="gu" type="button">
+          ગુજરાતી
+        </button>
+
+      </div>
+
+      <div class="language-popup-actions">
+        <button id="languageCancel" type="button">CANCEL</button>
+        <button id="languageOk" type="button">OK</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge"><i></i> Professional Cloth Repair Solution</div>
+          <h1 class="type-title"><span id="typed"></span><span class="cursor"></span></h1>
+          <p class="hero-copy"><b>FabriBond Plus</b> – A professional heat-activated repair paper that provides strong
+            bonding, fast finishing, and long-lasting durability for all types of cloth repair applications.</p>
+          <div class="hero-actions"><a class="gold-btn" href="#contact">Get Product Information →</a><a
+              class="outline-btn" href="#howto">▶ Watch Video</a></div>
+        </div>
+        <div class="hero-card">
+          <div class="model"></div>
+
+          <div class="product-float"><img src="images/FB-BG-poster-1.png" alt="FabriBond Plus Product Image"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats container">
+      <div class="stats-box">
+        <div class="stat">
+          <div class="stat-icon">👥</div>
+          <div><strong>500+</strong><small>Happy Customers</small></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">📦</div>
+          <div><strong>20K+</strong><small>Product Units Sold</small></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">⭐</div>
+          <div><strong>4.8/5</strong><small>Customer Rating</small></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">🛡️</div>
+          <div><strong>99%</strong><small>Customer Satisfaction</small></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <h2 class="section-title">About <span>FabriBond Plus</span></h2>
+            <p class="about-text">FabriBond Plus is a professional heat-activated repair paper designed for strong,
+              flexible and long-lasting fabric repairs. It is widely used by garment manufacturers, tailors, uniform
+              suppliers, repair shops and individual users. Whether it’s clothing, bags, shoes or outdoor gear,
+              FabriBond Plus gives you a reliable and neat finish.</p>
+          </div>
+          <div class="about-img"><img src="images/fabribond-web-panal-1.png" alt="FabriBond Plus Product Image"></div>
+        </div>
+        <div class="use-box">
+          <h3>One Repair Material. <span>Many Everyday Uses.</span></h3>
+          <div class="use-grid">
+            <div class="use-item">
+              <div class="use-icon">👕</div>Garment<br>Repair
+            </div>
+            <div class="use-item">
+              <div class="use-icon">👜</div>Bags &<br>Luggage
+            </div>
+            <div class="use-item">
+              <div class="use-icon">👟</div>Footwear<br>Repair
+            </div>
+            <div class="use-item">
+              <div class="use-icon">🧥</div>Uniforms &<br>Workwear
+            </div>
+            <div class="use-item">
+              <div class="use-icon">⛺</div>Outdoor &<br>Camping Gear
+            </div>
+            <div class="use-item">
+              <div class="use-icon">🧤</div>Industrial<br>Gloves & Fabric
+            </div>
+            <div class="use-item">
+              <div class="use-icon">💧</div>Waterproof<br>Fabrics
+            </div>
+            <div class="use-item">
+              <div class="use-icon">🧳</div>Travel Gear<br>& Accessories
+            </div>
+          </div>
+        </div>
+        <div class="three-grid">
+          <div class="info-card">
+            <h3>🟢 Why Choose FabriBond Plus?</h3>
+            <span class="check">No stitching required</span><span class="check">Heat activated – easy
+              application</span><span class="check">Strong and long-lasting bond</span><span class="check">Professional
+              finishing</span><span class="check">Works on a wide range of fabrics</span><span class="check">Ideal for
+              garment manufacturers, tailors, wholesalers and retailers</span><span class="check">Perfect for home and
+              outdoor use</span><span class="check">Durable, flexible and reliable</span><span
+              class="check">Cost-effective and time-saving</span>
+          </div>
+          <div class="info-card warning">
+            <h3>⚠ Important Note</h3><strong>FabriBond Plus does not work on <span>wool fabric.</span></strong>
+            <p>Do not use on woven or loose-weave wool fabrics. It works best on most common fabrics and coated
+              materials.</p>
+          </div>
+          <div class="info-card">
+            <h3>🧑‍💼 Business & Order Information</h3>
+            <span class="check">We work with B2B (Business to Business)</span><span class="check">We work with B2C
+              (Business to Consumer)</span><span class="check">We work with D2C (Direct to Consumer)</span><span
+              class="check">Bulk supply available</span><span class="check">Individual orders welcome</span><span
+              class="check">Door-to-door delivery available</span><span class="check">Suitable for garment industry,
+              shops and personal use</span><span class="check">High quality and reliable supply</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- copyed from FabriBond_Plus_Landing_Page_Final.html  -->
+    <section class="section b2b">
+      <div class="container">
+        <div class="section-head reveal" style="text-align:center; margin:40px 0;">
+          <div class="kicker">Business & Supply</div>
+          <h2>We Work B2B, B2C & D2C.</h2>
+          <p>From individual requirements to bulk supply, we can coordinate your order online and arrange delivery to
+            your provided location.</p>
+        </div>
+        <div class="business-grid">
+          <article class="business-card reveal">
+            <div class="business-icon">🏢</div>
+            <h3>B2B</h3>
+            <p>Business-to-business supply for retailers, garment businesses and professional users.</p>
+          </article>
+          <article class="business-card reveal">
+            <div class="business-icon">🛍️</div>
+            <h3>B2C</h3>
+            <p>Direct ordering for individual customers who need the product for personal use.</p>
+          </article>
+          <article class="business-card reveal">
+            <div class="business-icon">📦</div>
+            <h3>D2C</h3>
+            <p>Direct-to-consumer online enquiries with a simple ordering process.</p>
+          </article>
+          <article class="business-card reveal">
+            <div class="business-icon">🚚</div>
+            <h3>Door-to-door</h3>
+            <p>Give us your requirement and delivery location; we can coordinate delivery.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="review-section">
+      <div class="container">
+        <div class="review-head">
+          <div>
+            <h2 class="section-title">Customer Reviews</h2>
+            <p>Real feedback from our valued customers.</p>
+          </div>
+        </div>
+        <div class="review-track" id="reviewTrack">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Excellent product! Very easy to use and gives professional results.”</p>
+            <div class="person">
+              <div class="avatar">RM</div>
+              <div><b>Rahul Mehta</b><small>Tailor, Mumbai</small></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“We use it in our uniform business. Very reliable and cost-effective.”</p>
+            <div class="person">
+              <div class="avatar">SN</div>
+              <div><b>Sneha Verma</b><small>Uniform Supplier, Delhi</small></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Great for bag and shoe repairs. Strong and long lasting.”</p>
+            <div class="person">
+              <div class="avatar">IK</div>
+              <div><b>Imran Khan</b><small>Repair Shop, Hyderabad</small></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Delivery was fast and product quality is excellent. Highly recommended!”</p>
+            <div class="person">
+              <div class="avatar">PS</div>
+              <div><b>Pooja Sharma</b><small>Online Retailer, Bangalore</small></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Very practical for everyday garment repair. The finish looks neat.”</p>
+            <div class="person">
+              <div class="avatar">AK</div>
+              <div><b>Arjun Kapoor</b><small>Garment Trader, Surat</small></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Simple application and strong bonding. Useful for regular repair work.”</p>
+            <div class="person">
+              <div class="avatar">NF</div>
+              <div><b>Neha Fernandes</b><small>Tailor, Pune</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="howto">
+      <div class="container">
+        <h2 class="section-title">How to Use</h2>
+        <p style="margin-bottom:18px">Watch the step-by-step video guide to see how easy it is to use FabriBond Plus.
+        </p>
+
+        <!-- modifyed by chatgpt  -->
+        <a class="video-open-btn"
+          href="https://drive.google.com/file/d/13YOQWYDAl55gfU5j78HvlDiF-hSNG5mL/view?usp=sharing" target="_blank"
+          rel="noopener">
+          ▶ Watch Video
+        </a>
+        <a class="video-open-btn"
+          href="https://drive.google.com/file/d/1HGTh4G0qy6AkhU2fZ5n7i2fR4MnS_JyX/view?usp=sharing" target="_blank"
+          rel="noopener">
+          ▶ Watch Video
+        </a>
+
+
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <h2>Contact Us</h2>
+          <p>We are online and ready to assist you!</p>
+          <div class="contact-row">
+            <div class="ico">🏠</div>
+            <div><b>Online Business</b><small>We do not have a physical office.<br>We operate online.</small></div>
+          </div>
+          <div class="contact-row">
+            <div class="ico">🌐</div>
+            <div><b>Official Website</b><small>febribond.netlify.app</small></div>
+          </div>
+          <div class="contact-row">
+            <div class="ico">🏪</div>
+            <div><b>Visit Our Company</b><small><a href="saiyedwebcoders.netlify.app" target="_blank" rel="noopener noreferrer">saiyedwebcoders.netlify.app</a></small></div>
+          </div>
+          <div class="contact-row">
+            <div class="ico">💬</div>
+            <div><b>Send us your requirements</b><small>Use the form and we will get back to you on WhatsApp.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-card">
+          <div class="form-error" id="formError">Please fill in all required fields correctly.</div>
+          <form id="waForm">
+            <div class="field"><label>Name <span class="required">*</span></label><input id="name"
+                placeholder="Enter your full name" required></div>
+            <div class="field"><label>Mobile Number <span class="required">*</span></label>
+              <div class="phone-row"><select id="country" required>
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+971">🇦🇪 +971</option>
+                  <option value="+61">🇦🇺 +61</option>
+                  <option value="+65">🇸🇬 +65</option>
+                </select><input id="mobile" inputmode="numeric" maxlength="10" minlength="10" pattern="[0-9]{10}"
+                  placeholder="Enter 10 digit mobile number" required></div>
+            </div>
+            <div class="field"><label>What do you need? <span class="required">*</span></label><select id="purpose"
+                required>
+                <option value="">Select your requirement</option>
+                <option>Need product information</option>
+                <option>Need sample</option>
+                <option>Need bulk quantity</option>
+              </select></div>
+            <div class="field"><label>Message / Requirement <span class="required">*</span></label><textarea
+                id="message" placeholder="Please type your requirement..." required></textarea></div>
+            <button class="send-btn" type="submit">◉ &nbsp; Send on WhatsApp ➤</button>
+            <div class="form-note">By sending this message, you agree to be contacted on WhatsApp.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img
+            src="images/Nav-logo-image.png" alt="FabriBond Plus">
+          <p>A SMALL STEP,<br>A STRONGER, GREENER TOMORROW.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About</a><a href="#contact">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Our Company Website</h4><a href="https://saiyedwebcoders.netlify.app"
+            target="_blank">saiyedwebcoders.com</a><a class="store-btn" style="display:inline-block;color:#fff"
+            href="https://saiyedwebcoders.netlify.app" target="_blank">🌐 Visit Company</a>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+
+          <!-- social media icons  -->
+          <div class="socials">
+            <a href="https://www.instagram.com/royal_.stores/" target="_blank" rel="noopener" aria-label="Instagram">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+
+            </a>
+
+            <a href="https://wa.me/918347874084" target="_blank" rel="noopener" aria-label="WhatsApp">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5Z"></path>
+                <path
+                  d="M8.2 7.8c.2-.4.5-.5.8-.5h.6c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4 0 .6l-.5.7c-.1.2-.1.4 0 .6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6 0l.7-.5c.2-.1.4-.1.6 0l1.8.8c.3.1.4.3.4.5v.6c0 .3-.1.6-.5.8-.4.2-1 .3-1.5.2-1-.2-2.2-.8-3.4-1.7-1.1-.8-2-1.8-2.6-2.8-.6-1-.9-2-.8-2.9 0-.5.2-1.1.4-1.5Z">
+                </path>
+              </svg>
+
+            </a>
+          </div>
+          <a href="tel:+918347874084">
+            <p style="font-size:12px;margin-top:10px">📞 +91 83478 74084</p>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 FabriBond Plus. All rights reserved. &nbsp; | &nbsp;Developed by <a
+          target="_blank" rel="noopener" href="https://saiyedwebcoders.netlify.app"><b>SaiyedWebCoders</b></a></div>
+    </div>
+  </footer>
+
+  <a class="whatsapp"
+    href="https://wa.me/918347874084?text=Hi%20I'm%20interested%20in%20your%20product%20so%20please%20share%20details%20with%20me"
+    target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.55 0 .24 5.31.24 11.84c0 2.09.55 4.13 1.59 5.93L.13 24l6.38-1.67a11.8 11.8 0 0 0 5.57 1.41h.01c6.53 0 11.84-5.31 11.84-11.84 0-3.16-1.23-6.13-3.41-8.42zM12.09 21.73h-.01a9.85 9.85 0 0 1-5.02-1.38l-.36-.21-3.78.99 1.01-3.68-.23-.38a9.83 9.83 0 1 1 8.39 4.66zm5.4-7.38c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.69.15-.2.3-.79.97-.97 1.17-.18.2-.36.23-.66.08-.3-.15-1.27-.47-2.42-1.49-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.36.46-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.03-.53-.08-.15-.69-1.66-.94-2.27-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.81.38-.28.3-1.06 1.04-1.06 2.54s1.09 2.95 1.24 3.15c.15.2 2.14 3.27 5.19 4.58.73.32 1.3.51 1.74.65.73.23 1.4.2 1.93.12.59-.09 1.77-.72 2.02-1.41.25-.69.25-1.28.18-1.41-.08-.13-.28-.2-.59-.36z" />
+    </svg>
+  </a>
+
+  <script>
+    const phrases = [
+      [{ t: "Repair it.", h: false }, { t: " Bond it.", h: true }, { t: " Keep it going.", h: false }],
+      [{ t: "Fix it.", h: false }, { t: " Bond it.", h: true }, { t: " Use it again.", h: false }],
+      [{ t: "Repair it.", h: false }, { t: " Bond it.", h: true }, { t: " Keep it going.", h: false }]
+    ];
+    let pi = 0, ci = 0, phase = "typing", hold = 0;
+    const typed = document.getElementById("typed");
+    function typeLoop() {
+      const lang = localStorage.getItem("selectedLanguage") || "en";
+      const dict = window.translations && window.translations[lang] ? window.translations[lang] : {};
+      const parts = phrases[pi];
+      const full = parts.map(x => {
+        const raw = x.t.trim();
+        const tr = dict[raw] || dict[x.t] || raw;
+        return x.t.startsWith(" ") ? " " + tr : tr;
+      }).join("");
+      if (phase === "typing") {
+        ci++;
+        typed.innerHTML = full.slice(0, ci);
+        if (ci >= full.length) { phase = "hold"; hold = 0 }
+      } else if (phase === "hold") {
+        hold++;
+        if (hold > 28) { phase = "deleting" }
+      } else {
+        ci--;
+        typed.innerHTML = full.slice(0, ci);
+        if (ci <= 0) { pi = (pi + 1) % phrases.length; phase = "typing" }
+      }
+      setTimeout(typeLoop, phase === "deleting" ? 65 : 105);
+    }
+    typeLoop();
+
+
+    /* Active Nav Link on Click and Scroll with Smooth Sliding Indicator */
+    (function () {
+      const navLinks = document.querySelectorAll('.navlinks a[href^="#"]');
+      const navIndicator = document.getElementById('navIndicator');
+      const sections = ['home', 'about', 'contact'].map(id => document.getElementById(id)).filter(Boolean);
+
+      function updateIndicator(activeLink) {
+        if (!navIndicator || !activeLink) return;
+        navIndicator.style.left = activeLink.offsetLeft + 'px';
+        navIndicator.style.width = activeLink.offsetWidth + 'px';
+      }
+
+      function setActiveLink(id) {
+        let currentActive = null;
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+            currentActive = link;
+          } else {
+            link.classList.remove('active');
+          }
+        });
+        if (currentActive) {
+          updateIndicator(currentActive);
+        }
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          const targetId = this.getAttribute('href').replace('#', '');
+          setActiveLink(targetId);
+        });
+      });
+
+      // Scrollspy listener
+      function onScrollSpy() {
+        const scrollPos = window.scrollY + 120;
+        let currentSectionId = 'home';
+
+        sections.forEach(section => {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            currentSectionId = section.id;
+          }
+        });
+
+        // If reached bottom of page, highlight contact
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+          currentSectionId = 'contact';
+        }
+
+        setActiveLink(currentSectionId);
+      }
+
+      window.addEventListener('scroll', onScrollSpy, { passive: true });
+      window.addEventListener('resize', () => { const active = document.querySelector('.navlinks a.active'); if (active) updateIndicator(active); });
+      onScrollSpy();
+    })();
+
+    /* Hamburger menu toggle */
+    (function () {
+      var btn = document.getElementById('hamburgerBtn');
+      var nav = document.getElementById('mobileNav');
+      var closeBtn = document.getElementById('mobileNavClose');
+      if (!btn || !nav) return;
+
+      function openMenu() {
+        btn.classList.add('open');
+        nav.classList.add('open');
+        nav.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        btn.classList.remove('open');
+        nav.classList.remove('open');
+        nav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (nav.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          closeMenu();
+        });
+      }
+
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          closeMenu();
+        });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+    })();
+
+    /* Review carousel: six cards, automatic left/right sliding. */
+    const track = document.getElementById("reviewTrack");
+    let reviewIndex = 0;
+    function reviewStep() {
+      const cards = [...track.children];
+      const visible = innerWidth <= 480 ? 1 : innerWidth <= 768 ? 2 : innerWidth <= 1000 ? 3 : 4;
+      reviewIndex = (reviewIndex + 1) % cards.length;
+      const gap = 18, cardWidth = cards[0].getBoundingClientRect().width + gap;
+      track.scrollTo({ left: reviewIndex * cardWidth, behavior: "smooth" });
+    }
+    setInterval(reviewStep, 3500);
+
+    /* WhatsApp form validation + prefilled message */
+    document.getElementById("mobile").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10) });
+    document.getElementById("waForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const err = document.getElementById("formError");
+      const name = document.getElementById("name").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+      const purpose = document.getElementById("purpose").value;
+      const message = document.getElementById("message").value.trim();
+      if (!name || !mobile || mobile.length !== 10 || !purpose || !message) { err.style.display = "block"; return }
+      err.style.display = "none";
+      const cc = document.getElementById("country").value;
+      const text = `Hi, this message is sent through the website FebriBond.netlify.app.
+
+Name: ${name}
+Mobile Number: ${cc} ${mobile}
+Requirement: ${purpose}
+Message: ${message}`;
+      window.open("https://wa.me/918347874084?text=" + encodeURIComponent(text), "_blank");
+    });
+
+    // modifyed by chatgpt
+    function toggleVideo(id) {
+      const v = document.getElementById(id);
+
+      if (v.paused) {
+        v.play();
+      } else {
+        v.pause();
+      }
+    }
+
+    function toggleYouTubeVideo(id) {
+      const iframe = document.getElementById(id);
+
+      iframe.contentWindow.postMessage(
+        '{"event":"command","func":"playVideo","args":""}',
+        '*'
+      );
+    }
+
+    function shareVideo(url) {
+      if (navigator.share) {
+        navigator.share({
+          title: "FabriBond Plus",
+          text: "Watch this FabriBond Plus repair video.",
+          url: url
+        }).catch(() => { });
+      } else {
+        navigator.clipboard.writeText(url);
+        alert("Video link copied!");
+      }
+    }
+
+    function downloadVideo(id) {
+      const v = document.getElementById(id);
+
+      if (v.currentSrc) {
+        const a = document.createElement("a");
+        a.href = v.currentSrc;
+        a.download = id + ".mp4";
+        a.target = "_blank";
+        a.click();
+      }
+    }
+
+    function openVideo(url) {
+      window.open(url, "_blank");
+    }
+
+    /* The two supplied Drive URLs are placeholders in the source because a Google Drive
+       viewer URL is not a direct MP4 stream. Replace src values with direct video files
+       (or Drive direct-download URLs) to enable browser playback/download. */
+    document.getElementById("video1").src = "https://drive.google.com/file/d/13YOQWYDAl55gfU5j78HvlDiF-hSNG5mL/view?usp=drive_link";
+    document.getElementById("video2").src = "https://drive.google.com/file/d/1HGTh4G0qy6AkhU2fZ5n7i2fR4MnS_JyX/view?usp=drive_link";
+  </script>
+
+  <!-- popup code  -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const languageBtn = document.getElementById("languageBtn");
+      const languageOverlay = document.getElementById("languageOverlay");
+      const languageCancel = document.getElementById("languageCancel");
+      const languageOk = document.getElementById("languageOk");
+      const languageOptions = document.querySelectorAll(".language-option");
+
+      if (!languageOverlay) {
+        console.error("Language popup not found.");
+        return;
+      }
+
+      /* =========================================================
+         LANGUAGE TRANSLATIONS
+      ========================================================= */
+
+      window.translations = {
+        hi: {
+          "FabriBond Plus | Vulcanized Repair Paper": "FabriBond Plus | वल्कनीकृत रिपेयर पेपर",
+          "Home": "होम",
+          "About": "हमारे बारे में",
+          "Contact Us": "संपर्क करें",
+          "Language": "भाषा",
+          "Our Company Website": "हमारी कंपनी की वेबसाइट",
+          "Visit Company": "कंपनी देखें",
+          "Get Product Information": "प्रोडक्ट की जानकारी प्राप्त करें",
+          "Watch Video": "वीडियो देखें",
+          "Professional Cloth Repair Solution": "प्रोफेशनल क्लॉथ रिपेयर सॉल्यूशन",
+          "A professional heat-activated repair paper that provides strong bonding, fast finishing, and long-lasting durability for all types of cloth repair applications.": "एक प्रोफेशनल हीट-एक्टिवेटेड रिपेयर पेपर जो सभी प्रकार के कपड़ों की मरम्मत के लिए मजबूत बॉन्डिंग, फ़ास्ट फिनिशिंग और लंबे समय तक चलने वाला टिकाऊपन प्रदान करता है।",
+          "– A professional heat-activated repair paper that provides strong bonding, fast finishing, and long-lasting durability for all types of cloth repair applications.": "– एक प्रोफेशनल हीट-एक्टिवेटेड रिपेयर पेपर जो सभी प्रकार के कपड़ों की मरम्मत के लिए मजबूत बॉन्डिंग, फ़ास्ट फिनिशिंग और लंबे समय तक चलने वाला टिकाऊपन प्रदान करता है।",
+          "- A professional heat-activated repair paper that provides strong bonding, fast finishing, and long-lasting durability for all types of cloth repair applications.": "- एक प्रोफेशनल हीट-एक्टिवेटेड रिपेयर पेपर जो सभी प्रकार के कपड़ों की मरम्मत के लिए मजबूत बॉन्डिंग, फ़ास्ट फिनिशिंग और लंबे समय तक चलने वाला टिकाऊपन प्रदान करता है।",
+          "Repair it. Bond it. Keep it going.": "इसे रिपेयर करें। बॉन्ड करें। इसे लंबे समय तक चलाएँ।",
+          "Repair it.": "इसे रिपेयर करें।",
+          "Bond it.": "बॉन्ड करें।",
+          "Keep it going.": "इसे लंबे समय तक चलाएँ।",
+          "Fix it.": "इसे ठीक करें।",
+          "Use it again.": "फिर से उपयोग करें।",
+          "Happy Customers": "खुश ग्राहक",
+          "500+ Happy Customers": "500+ खुश ग्राहक",
+          "Product Units Sold": "प्रोडक्ट यूनिट्स बिक चुकी हैं",
+          "20K+ Product Units Sold": "20K+ प्रोडक्ट यूनिट्स बिक चुकी हैं",
+          "Customer Rating": "ग्राहक रेटिंग",
+          "4.8/5 Customer Rating": "4.8/5 ग्राहक रेटिंग",
+          "Customer Satisfaction": "ग्राहक संतुष्टि",
+          "99% Customer Satisfaction": "99% ग्राहक संतुष्टि",
+          "FabriBond Plus is a professional heat-activated repair paper designed for strong, flexible and long-lasting fabric repairs. It is widely used by garment manufacturers, tailors, uniform suppliers, repair shops and individual users. Whether it's clothing, bags, shoes or outdoor gear, FabriBond Plus gives you a reliable and neat finish.": "फैब्रीबॉन्ड प्लस एक पेशेवर हीट-एक्टिवेटेड रिपेयर पेपर है जिसे मजबूत, लचीले और लंबे समय तक चलने वाले कपड़ों की मरम्मत के लिए डिज़ाइन किया गया है। इसका उपयोग परिधान निर्माताओं, दर्जियों, वर्दी आपूर्तिकर्ताओं, मरम्मत की दुकानों और व्यक्तिगत उपयोगकर्ताओं द्वारा व्यापक रूप से किया जाता है। चाहे कपड़े हों, बैग हों, जूते हों या बाहरी उपकरण, फैब्रीबॉन्ड प्लस आपको एक विश्वसनीय और साफ फिनिश देता है।",
+          "FabriBond Plus is a professional heat-activated repair paper designed for strong, flexible and long-lasting fabric repairs. It is widely used by garment manufacturers, tailors, uniform suppliers, repair shops and individual users. Whether it’s clothing, bags, shoes or outdoor gear, FabriBond Plus gives you a reliable and neat finish.": "फैब्रीबॉन्ड प्लस एक पेशेवर हीट-एक्टिवेटेड रिपेयर पेपर है जिसे मजबूत, लचीले और लंबे समय तक चलने वाले कपड़ों की मरम्मत के लिए डिज़ाइन किया गया है। इसका उपयोग परिधान निर्माताओं, दर्जियों, वर्दी आपूर्तिकर्ताओं, मरम्मत की दुकानों और व्यक्तिगत उपयोगकर्ताओं द्वारा व्यापक रूप से किया जाता है। चाहे कपड़े हों, बैग हों, जूते हों या बाहरी उपकरण, फैब्रीबॉन्ड प्लस आपको एक विश्वसनीय और साफ फिनिश देता है।",
+          "One Repair Material.": "एक रिपेयर मटेरियल।",
+          "Many Everyday Uses.": "रोज़मर्रा के कई उपयोग।",
+          "One Repair Material. Many Everyday Uses.": "एक रिपेयर मटेरियल। रोज़मर्रा के कई उपयोग।",
+          "Garment": "गारमेंट",
+          "Repair": "रिपेयर",
+          "Garment Repair": "गारमेंट रिपेयर",
+          "Bags &": "बैग और",
+          "Luggage": "सामान (लगेज)",
+          "Bags & Luggage": "बैग और सामान (लगेज)",
+          "Footwear": "फुटवेयर",
+          "Footwear Repair": "फुटवेयर रिपेयर",
+          "Uniforms &": "यूनिफॉर्म और",
+          "Workwear": "वर्कवियर",
+          "Uniforms & Workwear": "यूनिफॉर्म और वर्कवियर",
+          "Outdoor &": "आउटडोर और",
+          "Camping Gear": "कैंपिंग गियर",
+          "Outdoor & Camping Gear": "आउटडोर और कैंपिंग गियर",
+          "Industrial": "औद्योगिक",
+          "Gloves & Fabric": "दस्ताने और कपड़ा",
+          "Industrial Gloves & Fabric": "औद्योगिक दस्ताने और कपड़ा",
+          "Waterproof": "वॉटरप्रूफ",
+          "Fabrics": "कपड़े",
+          "Waterproof Fabrics": "वॉटरप्रूफ कपड़े",
+          "Travel Gear": "ट्रैवल गियर",
+          "& Accessories": "और एक्सेसरीज",
+          "Travel Gear & Accessories": "ट्रैवल गियर और एक्सेसरीज",
+          "Why Choose FabriBond Plus?": "FabriBond Plus क्यों चुनें?",
+          "No stitching required": "सिलाई की आवश्यकता नहीं",
+          "Heat activated – easy application": "हीट एक्टिवेटेड – आसान उपयोग",
+          "Heat activated - easy application": "हीट एक्टिवेटेड – आसान उपयोग",
+          "Strong and long-lasting bond": "मजबूत और लंबे समय तक चलने वाला बॉन्ड",
+          "Professional finishing": "प्रोफेशनल फिनिशिंग",
+          "Works on a wide range of fabrics": "विभिन्न प्रकार के कपड़ों पर काम करता है",
+          "Works on various fabrics": "विभिन्न प्रकार के कपड़ों पर काम करता है",
+          "Ideal for garment manufacturers, tailors, wholesalers and retailers": "परिधान निर्माताओं, दर्जियों, थोक विक्रेताओं और खुदरा विक्रेताओं के लिए आदर्श",
+          "Ideal for garment makers, tailors, wholesalers & retailers": "परिधान निर्माताओं, दर्जियों, थोक विक्रेताओं और खुदरा विक्रेताओं के लिए आदर्श",
+          "Perfect for home and outdoor use": "घर और बाहरी उपयोग के लिए बिल्कुल सही",
+          "Perfect for home & outdoor use": "घर और बाहरी उपयोग के लिए बिल्कुल सही",
+          "Durable, flexible and reliable": "टिकाऊ, लचीला और विश्वसनीय",
+          "Cost-effective and time-saving": "किफायती और समय बचाने वाला",
+          "Important Note": "महत्वपूर्ण नोट",
+          "FabriBond Plus does not work on": "FabriBond Plus काम नहीं करता है",
+          "FabriBond Plus does NOT work on": "FabriBond Plus काम नहीं करता है",
+          "wool fabric.": "ऊनी कपड़े पर।",
+          "wool fabric": "ऊनी कपड़ा",
+          "FabriBond Plus does not work on wool fabric.": "फैब्रीबॉन्ड प्लस ऊनी कपड़े पर काम नहीं करता है।",
+          "FabriBond Plus does NOT work on wool fabric.": "फैब्रीबॉन्ड प्लस ऊनी कपड़े पर काम नहीं करता है।",
+          "Do not use on woven or loose-weave wool fabrics. It works best on most common fabrics and coated materials.": "बुने हुए या ढीले बुनाई वाले ऊनी कपड़ों पर इसका उपयोग न करें। यह अधिकांश सामान्य कपड़ों और लेपित सामग्री पर सबसे अच्छा काम करता है।",
+          "Business & Order Information": "व्यापार और ऑर्डर जानकारी",
+          "We work with B2B (Business to Business)": "हम B2B (Business to Business) के साथ काम करते हैं",
+          "We work with B2C (Business to Consumer)": "हम B2C (Business to Consumer) के साथ काम करते हैं",
+          "We work with D2C (Direct to Consumer)": "हम D2C (Direct to Consumer) के साथ काम करते हैं",
+          "Bulk supply available": "बल्क सप्लाई उपलब्ध है",
+          "Individual orders welcome": "व्यक्तिगत ऑर्डर का स्वागत है",
+          "Door-to-door delivery available": "डोर-टू-डोर डिलीवरी उपलब्ध है",
+          "Suitable for garment industry, shops and personal use": "गारमेंट उद्योग, दुकानों और व्यक्तिगत उपयोग के लिए उपयुक्त",
+          "High quality and reliable supply": "उच्च गुणवत्ता और विश्वसनीय आपूर्ति",
+          "Business & Supply": "व्यापार और आपूर्ति",
+          "We Work B2B, B2C & D2C.": "हम B2B, B2C और D2C काम करते हैं।",
+          "From individual requirements to bulk supply, we can coordinate your order online and arrange delivery to your provided location.": "व्यक्तिगत आवश्यकताओं से लेकर बल्क सप्लाई तक, हम आपके ऑर्डर को ऑनलाइन समन्वित कर सकते हैं और आपके दिए गए स्थान पर डिलीवरी की व्यवस्था कर सकते हैं।",
+          "Business-to-business supply for retailers, garment businesses and professional users.": "खुदरा विक्रेताओं, परिधान व्यवसायों और पेशेवर उपयोगकर्ताओं के लिए बिजनेस-टू-बिजनेस आपूर्ति।",
+          "Direct ordering for individual customers who need the product for personal use.": "व्यक्तिगत उपयोग के लिए उत्पाद की आवश्यकता वाले ग्राहकों के लिए प्रत्यक्ष ऑर्डर।",
+          "Direct-to-consumer online enquiries with a simple ordering process.": "सरल ऑर्डर प्रक्रिया के साथ डायरेक्ट-टू-कंज्यूमर ऑनलाइन पूछताछ।",
+          "Door-to-door": "डोर-टू-डोर",
+          "Give us your requirement and delivery location; we can coordinate delivery.": "हमें अपनी आवश्यकता और डिलीवरी का स्थान बताएं; हम डिलीवरी का समन्वय कर सकते हैं।",
+          "Customer Reviews": "ग्राहकों की समीक्षाएं",
+          "Real feedback from our valued customers.": "हमारे मूल्यवान ग्राहकों से वास्तविक प्रतिक्रिया।",
+          "Excellent product! Very easy to use and gives professional results.": "उत्कृष्ट उत्पाद! उपयोग करने में बहुत आसान और पेशेवर परिणाम देता है।",
+          "“Excellent product! Very easy to use and gives professional results.”": "“उत्कृष्ट उत्पाद! उपयोग करने में बहुत आसान और पेशेवर परिणाम देता है।”",
+          "\"Excellent product! Very easy to use and gives professional results.\"": "\"उत्कृष्ट उत्पाद! उपयोग करने में बहुत आसान और पेशेवर परिणाम देता है।\"",
+          "Rahul Mehta": "राहुल मेहता",
+          "Tailor, Mumbai": "दर्जी, मुंबई",
+          "We use it in our uniform business. Very reliable and cost-effective.": "हम इसका उपयोग अपने वर्दी व्यवसाय में करते हैं। बहुत विश्वसनीय और लागत प्रभावी।",
+          "“We use it in our uniform business. Very reliable and cost-effective.”": "“हम इसका उपयोग अपने वर्दी व्यवसाय में करते हैं। बहुत विश्वसनीय और लागत प्रभावी।”",
+          "\"We use it in our uniform business. Very reliable and cost-effective.\"": "\"हम इसका उपयोग अपने वर्दी व्यवसाय में करते हैं। बहुत विश्वसनीय और लागत प्रभावी।\"",
+          "Sneha Verma": "स्नेहा वर्मा",
+          "Uniform Supplier, Delhi": "यूनिफॉर्म सप्लायर, दिल्ली",
+          "Great for bag and shoe repairs. Strong and long lasting.": "बैग और जूते की मरम्मत के लिए बढ़िया। मजबूत और लंबे समय तक चलने वाला।",
+          "“Great for bag and shoe repairs. Strong and long lasting.”": "“बैग और जूते की मरम्मत के लिए बढ़िया। मजबूत और लंबे समय तक चलने वाला।”",
+          "\"Great for bag and shoe repairs. Strong and long lasting.\"": "\"बैग और जूते की मरम्मत के लिए बढ़िया। मजबूत और लंबे समय तक चलने वाला।\"",
+          "Imran Khan": "इमरान खान",
+          "Repair Shop, Hyderabad": "रिपेयर शॉप, हैदराबाद",
+          "Delivery was fast and product quality is excellent. Highly recommended!": "डिलीवरी तेज थी और उत्पाद की गुणवत्ता उत्कृष्ट है। अत्यधिक अनुशंसित!",
+          "“Delivery was fast and product quality is excellent. Highly recommended!”": "“डिलीवरी तेज थी और उत्पाद की गुणवत्ता उत्कृष्ट है। अत्यधिक अनुशंसित!”",
+          "\"Delivery was fast and product quality is excellent. Highly recommended!\"": "\"डिलीवरी तेज थी और उत्पाद की गुणवत्ता उत्कृष्ट है। अत्यधिक अनुशंसित!\"",
+          "Pooja Sharma": "पूजा शर्मा",
+          "Online Retailer, Bangalore": "ऑनलाइन रिटेलर, बैंगलोर",
+          "Very practical for everyday garment repair. The finish looks neat.": "रोजमर्रा के परिधान मरम्मत के लिए बहुत व्यावहारिक। फिनिश साफ दिखती है।",
+          "“Very practical for everyday garment repair. The finish looks neat.”": "“रोजमर्रा के परिधान मरम्मत के लिए बहुत व्यावहारिक। फिनिश साफ दिखती है।”",
+          "\"Very practical for everyday garment repair. The finish looks neat.\"": "\"रोजमर्रा के परिधान मरम्मत के लिए बहुत व्यावहारिक। फिनिश साफ दिखती है।\"",
+          "Arjun Kapoor": "अर्जुन कपूर",
+          "Garment Trader, Surat": "गारमेंट ट्रेडर, सूरत",
+          "Simple application and strong bonding. Useful for regular repair work.": "सरल अनुप्रयोग और मजबूत बॉन्डिंग। नियमित मरम्मत कार्य के लिए उपयोगी।",
+          "“Simple application and strong bonding. Useful for regular repair work.”": "“सरल अनुप्रयोग और मजबूत बॉन्डिंग। नियमित मरम्मत कार्य के लिए उपयोगी।”",
+          "\"Simple application and strong bonding. Useful for regular repair work.\"": "\"सरल अनुप्रयोग और मजबूत बॉन्डिंग। नियमित मरम्मत कार्य के लिए उपयोगी।\"",
+          "Neha Fernandes": "नेहा फर्नांडीस",
+          "Tailor, Pune": "दर्जी, पुणे",
+          "How to Use": "उपयोग कैसे करें",
+          "HOW TO USE FABRIBOND PLUS": "FABRIBOND PLUS का उपयोग कैसे करें",
+          "Watch the step-by-step video guide to see how easy it is to use FabriBond Plus.": "FabriBond Plus का उपयोग करना कितना आसान है यह देखने के लिए चरण-दर-चरण वीडियो गाइड देखें।",
+          "We are online and ready to assist you!": "हम ऑनलाइन हैं और आपकी सहायता के लिए तैयार हैं!",
+          "Online Business": "ऑनलाइन बिजनेस",
+          "We do not have a physical office.": "हमारा कोई भौतिक कार्यालय नहीं है।",
+          "We operate online.": "हम ऑनलाइन काम करते हैं।",
+          "We do not have a physical office. We operate online.": "हमारा कोई भौतिक कार्यालय नहीं है। हम ऑनलाइन काम करते हैं।",
+          "Official Website": "आधिकारिक वेबसाइट",
+          "Visit Our Company": "हमारा कंपनी देखें",
+          "Send us your requirements": "अपनी आवश्यकताएं हमें भेजें",
+          "Use the form and we will get back to you on WhatsApp.": "फॉर्म का उपयोग करें और हम आपसे व्हाट्सएप पर संपर्क करेंगे।",
+          "Please fill in all required fields correctly.": "कृपया सभी आवश्यक फ़ील्ड सही ढंग से भरें।",
+          "Name": "नाम",
+          "Mobile Number": "मोबाइल नंबर",
+          "What do you need?": "आपको क्या चाहिए?",
+          "Select your requirement": "अपनी आवश्यकता चुनें",
+          "Need product information": "प्रोडक्ट की जानकारी चाहिए",
+          "Need sample": "सैंपल चाहिए",
+          "Need bulk quantity": "बल्क क्वांटिटी चाहिए",
+          "Message / Requirement": "संदेश / आवश्यकता",
+          "Message/Requirement": "संदेश / आवश्यकता",
+          "Enter your full name": "अपना पूरा नाम दर्ज करें",
+          "Enter 10 digit mobile number": "10 अंकों का मोबाइल नंबर दर्ज करें",
+          "Please type your requirement...": "कृपया अपनी आवश्यकता यहाँ लिखें...",
+          "Send on WhatsApp": "व्हाट्सएप पर भेजें",
+          "By sending this message, you agree to be contacted on WhatsApp.": "यह संदेश भेजकर, आप व्हाट्सएप पर संपर्क किए जाने के लिए सहमत होते हैं।",
+          "A SMALL STEP,": "एक छोटा कदम,",
+          "A SMALL STEP, A STRONGER, GREENER TOMORROW.": "एक छोटा कदम, एक मजबूत, हरित कल।",
+          "A STRONGER, GREENER TOMORROW.": "एक मजबूत, हरित कल।",
+          "Quick Links": "त्वरित लिंक",
+          "Follow Us": "हमें फॉलो करें",
+          "All rights reserved.": "सर्वाधिकार सुरक्षित।",
+          "Developed by": "द्वारा विकसित",
+          "Select any language you're comfortable with": "अपनी पसंद की भाषा चुनें",
+          "CANCEL": "रद्द करें",
+          "OK": "ठीक है"
+        },
+        gu: {
+          "FabriBond Plus | Vulcanized Repair Paper": "FabriBond Plus | વલ્કનાઇઝ્ડ રિપેર પેપર",
+          "Home": "હોમ",
+          "About": "અમારા વિશે",
+          "Contact Us": "સંપર્ક કરો",
+          "Language": "ભાષા",
+          "Our Company Website": "અમારી કંપનીની વેબસાઇટ",
+          "Visit Company": "કંપની જુઓ",
+          "Get Product Information": "ઉત્પાદનની માહિતી મેળવો",
+          "Watch Video": "વિડિઓ જુઓ",
+          "Professional Cloth Repair Solution": "પ્રોફેશનલ ક્લોથ રિપેર સોલ્યુશન",
+          "A professional heat-activated repair paper that provides strong bonding, fast finishing, and long-lasting durability for all types of cloth repair applications.": "એક પ્રોફેશનલ હીટ-એક્ટિવેટેડ રિપેર પેપર જે તમામ પ્રકારના કપડાના સમારકામ માટે મજબૂત બોન્ડિંગ, ઝડપી ફિનિશિંગ અને લાંબા સમય સુધી ટકાઉપણું પ્રદાન કરે છે.",
+          "– A professional heat-activated repair paper that provides strong bonding, fast finishing, and long-lasting durability for all types of cloth repair applications.": "– એક પ્રોફેશનલ હીટ-એક્ટિવેટેડ રિપેર પેપર જે તમામ પ્રકારના કપડાના સમારકામ માટે મજબૂત બોન્ડિંગ, ઝડપી ફિનિશિંગ અને લાંબા સમય સુધી ટકાઉપણું પ્રદાન કરે છે.",
+          "- A professional heat-activated repair paper that provides strong bonding, fast finishing, and long-lasting durability for all types of cloth repair applications.": "- એક પ્રોફેશનલ હીટ-એક્ટિવેટેડ રિપેર પેપર જે તમામ પ્રકારના કપડાના સમારકામ માટે મજબૂત બોન્ડિંગ, ઝડપી ફિનિશિંગ અને લાંબા સમય સુધી ટકાઉપણું પ્રદાન કરે છે.",
+          "Repair it. Bond it. Keep it going.": "તેને રિપેર કરો. બોન્ડ કરો. લાંબા સમય સુધી ચલાવો.",
+          "Repair it.": "તેને રિપેર કરો.",
+          "Bond it.": "બોન્ડ કરો.",
+          "Keep it going.": "લાંબા સમય સુધી ચલાવો.",
+          "Fix it.": "તેને ઠીક કરો.",
+          "Use it again.": "ફરીથી વાપરો.",
+          "Happy Customers": "ખુશ ગ્રાહકો",
+          "500+ Happy Customers": "500+ ખુશ ગ્રાહકો",
+          "Product Units Sold": "પ્રોડક્ટ એકમો વેચાયા",
+          "20K+ Product Units Sold": "20K+ પ્રોડક્ટ એકમો વેચાયા",
+          "Customer Rating": "ગ્રાહક રેટિંગ",
+          "4.8/5 Customer Rating": "4.8/5 ગ્રાહક રેટિંગ",
+          "Customer Satisfaction": "ગ્રાહક સંતોષ",
+          "99% Customer Satisfaction": "99% ગ્રાહક સંતોષ",
+          "FabriBond Plus is a professional heat-activated repair paper designed for strong, flexible and long-lasting fabric repairs. It is widely used by garment manufacturers, tailors, uniform suppliers, repair shops and individual users. Whether it's clothing, bags, shoes or outdoor gear, FabriBond Plus gives you a reliable and neat finish.": "ફેબ્રીબોન્ડ પ્લસ એક વ્યવસાયિક હીટ-એક્ટિવેટેડ રિપેર પેપર છે જે મજબૂત, લવચીક અને લાંબા સમય સુધી ચાલતા કાપડના સમારકામ માટે બનાવવામાં આવ્યું છે. તેનો ઉપયોગ ગાર્મેન્ટ ઉત્પાદકો, દરજીઓ, યુનિફોર્મ સપ્લાયર્સ, રિપેર શોપ્સ અને વ્યક્તિગત વપરાશકર્તાઓ દ્વારા વ્યાપકપણે થાય છે. પછી ભલે તે કપડાં, બેગ, પગરખાં કે આઉટડોર ગિયર હોય, ફેબ્રીબોન્ડ પ્લસ તમને વિશ્વસનીય અને સુઘડ પૂર્ણાહુતિ આપે છે.",
+          "FabriBond Plus is a professional heat-activated repair paper designed for strong, flexible and long-lasting fabric repairs. It is widely used by garment manufacturers, tailors, uniform suppliers, repair shops and individual users. Whether it’s clothing, bags, shoes or outdoor gear, FabriBond Plus gives you a reliable and neat finish.": "ફેબ્રીબોન્ડ પ્લસ એક વ્યવસાયિક હીટ-એક્ટિવેટેડ રિપેર પેપર છે જે મજબૂત, લવચીક અને લાંબા સમય સુધી ચાલતા કાપડના સમારકામ માટે બનાવવામાં આવ્યું છે. તેનો ઉપયોગ ગાર્મેન્ટ ઉત્પાદકો, દરજીઓ, યુનિફોર્મ સપ્લાયર્સ, રિપેર શોપ્સ અને વ્યક્તિગત વપરાશકર્તાઓ દ્વારા વ્યાપકપણે થાય છે. પછી ભલે તે કપડાં, બેગ, પગરખાં કે આઉટડોર ગિયર હોય, ફેબ્રીબોન્ડ પ્લસ તમને વિશ્વસનીય અને સુઘડ પૂર્ણાહુતિ આપે છે.",
+          "One Repair Material.": "એક રિપેર મટિરિયલ.",
+          "Many Everyday Uses.": "રોજિંદા ઘણા ઉપયોગો.",
+          "One Repair Material. Many Everyday Uses.": "એક રિપેર મટિરિયલ. રોજિંદા ઘણા ઉપયોગો.",
+          "Garment": "ગાર્મેન્ટ",
+          "Repair": "રિપેર",
+          "Garment Repair": "ગાર્મેન્ટ રિપેર",
+          "Bags &": "બેગ્સ અને",
+          "Luggage": "સામાન (લગેજ)",
+          "Bags & Luggage": "બેગ્સ અને સામાન (લગેજ)",
+          "Footwear": "ફૂટવેર",
+          "Footwear Repair": "ફૂટવેર રિપેર",
+          "Uniforms &": "યુનિફોર્મ અને",
+          "Workwear": "વર્કવેર",
+          "Uniforms & Workwear": "યુનિફોર્મ અને વર્કવેર",
+          "Outdoor &": "આઉટડોર અને",
+          "Camping Gear": "કેમ્પિંગ ગિયર",
+          "Outdoor & Camping Gear": "આઉટડોર અને કેમ્પિંગ ગિયર",
+          "Industrial": "ઔદ્યોગિક",
+          "Gloves & Fabric": "ગ્લોવ્સ અને ફેબ્રિક",
+          "Industrial Gloves & Fabric": "ઔદ્યોગિક ગ્લોવ્સ અને ફેબ્રિક",
+          "Waterproof": "વોટરપ્રૂફ",
+          "Fabrics": "ફેબ્રિક્સ",
+          "Waterproof Fabrics": "વોટરપ્રૂફ ફેબ્રિક્સ",
+          "Travel Gear": "ટ્રાવેલ ગિયર",
+          "& Accessories": "અને એસેસરીઝ",
+          "Travel Gear & Accessories": "ટ્રાવેલ ગિયર અને એસેસરીઝ",
+          "Why Choose FabriBond Plus?": "FabriBond Plus શા માટે પસંદ કરવું?",
+          "No stitching required": "કોઈ સિલાઈની જરૂર નથી",
+          "Heat activated – easy application": "હીટ એક્ટિવેટેડ – સરળ ઉપયોગ",
+          "Heat activated - easy application": "હીટ એક્ટિવેટેડ – સરળ ઉપયોગ",
+          "Strong and long-lasting bond": "મજબૂત અને લાંબા સમય સુધી ચાલતું બોન્ડ",
+          "Professional finishing": "પ્રોફેશનલ ફિનિશિંગ",
+          "Works on a wide range of fabrics": "વિવિધ પ્રકારના કાપડ પર કામ કરે છે",
+          "Works on various fabrics": "વિવિધ પ્રકારના કાપડ પર કામ કરે છે",
+          "Ideal for garment manufacturers, tailors, wholesalers and retailers": "ગાર્મેન્ટ ઉત્પાદકો, દરજીઓ, જથ્થાબંધ વેપારીઓ અને છૂટક વેપારીઓ માટે આદર્શ",
+          "Ideal for garment makers, tailors, wholesalers & retailers": "ગાર્મેન્ટ ઉત્પાદકો, દરજીઓ, જથ્થાબંધ વેપારીઓ અને છૂટક વેપારીઓ માટે આદર્શ",
+          "Perfect for home and outdoor use": "ઘર અને બહારના ઉપયોગ માટે શ્રેષ્ઠ",
+          "Perfect for home & outdoor use": "ઘર અને બહારના ઉપયોગ માટે શ્રેષ્ઠ",
+          "Durable, flexible and reliable": "ટકાઉ, લવચીક અને વિશ્વસનીય",
+          "Cost-effective and time-saving": "ખર્ચ-અસરકારક અને સમય બચાવનાર",
+          "Important Note": "મહત્વપૂર્ણ નોંધ",
+          "FabriBond Plus does not work on": "FabriBond Plus કામ કરતું નથી",
+          "FabriBond Plus does NOT work on": "FabriBond Plus કામ કરતું નથી",
+          "wool fabric.": "ઊનના કાપડ પર.",
+          "wool fabric": "ઊનનું કાપડ",
+          "FabriBond Plus does not work on wool fabric.": "ફેબ્રીબોન્ડ પ્લસ ઊનના કાપડ પર કામ કરતું નથી.",
+          "FabriBond Plus does NOT work on wool fabric.": "ફેબ્રીબોન્ડ પ્લસ ઊનના કાપડ પર કામ કરતું નથી.",
+          "Do not use on woven or loose-weave wool fabrics. It works best on most common fabrics and coated materials.": "વણાયેલા અથવા છૂટક વણાટવાળા ઊનના કાપડ પર ઉપયોગ કરશો નહીં. તે મોટાભાગના સામાન્ય કાપડ અને કોટેડ સામગ્રી પર શ્રેષ્ઠ કામ કરે છે.",
+          "Business & Order Information": "વ્યવસાય અને ઓર્ડર માહિતી",
+          "We work with B2B (Business to Business)": "અમે B2B (Business to Business) સાથે કામ કરીએ છીએ",
+          "We work with B2C (Business to Consumer)": "અમે B2C (Business to Consumer) સાથે કામ કરીએ છીએ",
+          "We work with D2C (Direct to Consumer)": "અમે D2C (Direct to Consumer) સાથે કામ કરીએ છીએ",
+          "Bulk supply available": "બલ્ક સપ્લાય ઉપલબ્ધ છે",
+          "Individual orders welcome": "વ્યક્તિગત ઓર્ડરનું સ્વાગત છે",
+          "Door-to-door delivery available": "ડોર-ટુ-ડોર ડિલિવરી ઉપલબ્ધ છે",
+          "Suitable for garment industry, shops and personal use": "ગાર્મેન્ટ ઉદ્યોગ, દુકાનો અને વ્યક્તિગત ઉપયોગ માટે યોગ્ય",
+          "High quality and reliable supply": "ઉચ્ચ ગુણવત્તા અને વિશ્વસનીય સપ્લાય",
+          "Business & Supply": "બિઝનેસ અને સપ્લાય",
+          "We Work B2B, B2C & D2C.": "અમે B2B, B2C અને D2C કામ કરીએ છીએ.",
+          "From individual requirements to bulk supply, we can coordinate your order online and arrange delivery to your provided location.": "વ્યક્તિગત જરૂરિયાતોથી લઈને બલ્ક સપ્લાય સુધી, અમે તમારા ઓર્ડરને ઑનલાઇન સંકલન કરી શકીએ છીએ અને તમારા આપેલા સ્થાન પર વિતરણ ગોઠવી શકીએ છીએ.",
+          "Business-to-business supply for retailers, garment businesses and professional users.": "રિટેલર્સ, ગાર્મેન્ટ બિઝનેસ અને પ્રોફેશનલ યુઝર્સ માટે બિઝનેસ-ટુ-બિઝનેસ સપ્લાય.",
+          "Direct ordering for individual customers who need the product for personal use.": "વ્યક્તિગત ઉપયોગ માટે ઉત્પાદનની જરૂર હોય તેવા વ્યક્તિગત ગ્રાહકો માટે સીધો ઓર્ડર.",
+          "Direct-to-consumer online enquiries with a simple ordering process.": "સરળ ઓર્ડર પ્રક્રિયા સાથે સીધી-થી-ગ્રાહક ઑનલાઇન પૂછપરછ.",
+          "Door-to-door": "ડોર-ટુ-ડોર",
+          "Give us your requirement and delivery location; we can coordinate delivery.": "અમને તમારી જરૂરિયાત અને વિતરણ સ્થાન આપો; અમે ડિલિવરીનું સંકલન કરી શકીએ છીએ.",
+          "Customer Reviews": "ગ્રાહકોની સમીક્ષાઓ",
+          "Real feedback from our valued customers.": "અમારા મૂલ્યવાન ગ્રાહકો તરફથી વાસ્તવિક પ્રતિસાદ.",
+          "Excellent product! Very easy to use and gives professional results.": "ઉત્તમ ઉત્પાદન! વાપરવા માટે ખૂબ જ સરળ અને વ્યાવસાયિક પરિણામો આપે છે.",
+          "“Excellent product! Very easy to use and gives professional results.”": "“ઉત્તમ ઉત્પાદન! વાપરવા માટે ખૂબ જ સરળ અને વ્યાવસાયિક પરિણામો આપે છે.”",
+          "\"Excellent product! Very easy to use and gives professional results.\"": "\"ઉત્તમ ઉત્પાદન! વાપરવા માટે ખૂબ જ સરળ અને વ્યાવસાયિક પરિણામો આપે છે.\"",
+          "Rahul Mehta": "રાહુલ મહેતા",
+          "Tailor, Mumbai": "દરજી, મુંબઈ",
+          "We use it in our uniform business. Very reliable and cost-effective.": "અમે અમારા યુનિફોર્મ બિઝનેસમાં તેનો ઉપયોગ કરીએ છીએ. ખૂબ વિશ્વસનીય અને ખર્ચ-અસરકારક.",
+          "“We use it in our uniform business. Very reliable and cost-effective.”": "“અમે અમારા યુનિફોર્મ બિઝનેસમાં તેનો ઉપયોગ કરીએ છીએ. ખૂબ વિશ્વસનીય અને ખર્ચ-અસરકારક.”",
+          "\"We use it in our uniform business. Very reliable and cost-effective.\"": "\"અમે અમારા યુનિફોર્મ બિઝનેસમાં તેનો ઉપયોગ કરીએ છીએ. ખૂબ વિશ્વસનીય અને ખર્ચ-અસરકારક.\"",
+          "Sneha Verma": "સ્નેહા વર્મા",
+          "Uniform Supplier, Delhi": "યુનિફોર્મ સપ્લાયર, દિલ્હી",
+          "Great for bag and shoe repairs. Strong and long lasting.": "બેગ અને જૂતાના સમારકામ માટે સરસ. મજબૂત અને લાંબા સમય સુધી ચાલતું.",
+          "“Great for bag and shoe repairs. Strong and long lasting.”": "“બેગ અને જૂતાના સમારકામ માટે સરસ. મજબૂત અને લાંબા સમય સુધી ચાલતું.”",
+          "\"Great for bag and shoe repairs. Strong and long lasting.\"": "\"બેગ અને જૂતાના સમારકામ માટે સરસ. મજબૂત અને લાંબા સમય સુધી ચાલતું.\"",
+          "Imran Khan": "ઇમરાન ખાન",
+          "Repair Shop, Hyderabad": "રિપેર શોપ, હૈદરાબાદ",
+          "Delivery was fast and product quality is excellent. Highly recommended!": "ડિલિવરી ઝડપી હતી અને ઉત્પાદનની ગુણવત્તા ઉત્તમ છે. ખૂબ આગ્રહણીય!",
+          "“Delivery was fast and product quality is excellent. Highly recommended!”": "“ડિલિવરી ઝડપી હતી અને ઉત્પાદનની ગુણવત્તા ઉત્તમ છે. ખૂબ આગ્રહણીય!”",
+          "\"Delivery was fast and product quality is excellent. Highly recommended!\"": "\"ડિલિવરી ઝડપી હતી અને ઉત્પાદનની ગુણવત્તા ઉત્તમ છે. ખૂબ આગ્રહણીય!\"",
+          "Pooja Sharma": "પૂજા શર્મા",
+          "Online Retailer, Bangalore": "ઓનલાઇન રિટેલર, બેંગ્લોર",
+          "Very practical for everyday garment repair. The finish looks neat.": "રોજિંદા કપડાંના સમારકામ માટે ખૂબ જ વ્યવહારુ. પૂર્ણાહુતિ સુઘડ લાગે છે.",
+          "“Very practical for everyday garment repair. The finish looks neat.”": "“રોજિંદા કપડાંના સમારકામ માટે ખૂબ જ વ્યવહારુ. પૂર્ણાહુતિ સુઘડ લાગે છે.”",
+          "\"Very practical for everyday garment repair. The finish looks neat.\"": "\"રોજિંદા કપડાંના સમારકામ માટે ખૂબ જ વ્યવહારુ. પૂર્ણાહુતિ સુઘડ લાગે છે.\"",
+          "Arjun Kapoor": "અર્જુન કપૂર",
+          "Garment Trader, Surat": "ગાર્મેન્ટ ટ્રેડર, સુરત",
+          "Simple application and strong bonding. Useful for regular repair work.": "સરળ એપ્લિકેશન અને મજબૂત બોન્ડિંગ. નિયમિત સમારકામ માટે ઉપયોગી.",
+          "“Simple application and strong bonding. Useful for regular repair work.”": "“સરળ એપ્લિકેશન અને મજબૂત બોન્ડિંગ. નિયમિત સમારકામ માટે ઉપયોગી.”",
+          "\"Simple application and strong bonding. Useful for regular repair work.\"": "\"સરળ એપ્લિકેશન અને મજબૂત બોન્ડિંગ. નિયમિત સમારકામ માટે ઉપયોગી.\"",
+          "Neha Fernandes": "નેહા ફર્નાન્ડિસ",
+          "Tailor, Pune": "દરજી, પુણે",
+          "How to Use": "ઉપયોગ કેવી રીતે કરવો",
+          "HOW TO USE FABRIBOND PLUS": "FABRIBOND PLUS નો ઉપયોગ કેવી રીતે કરવો",
+          "Watch the step-by-step video guide to see how easy it is to use FabriBond Plus.": "ફેબ્રીબોન્ડ પ્લસ નો ઉપયોગ કરવો કેટલું સરળ છે તે જોવા માટે સ્ટેપ-બાય-સ્ટેપ વિડિઓ માર્ગદર્શિકા જુઓ.",
+          "We are online and ready to assist you!": "અમે ઓનલાઈન છીએ અને તમારી મદદ કરવા તૈયાર છીએ!",
+          "Online Business": "ઓનલાઇન બિઝનેસ",
+          "We do not have a physical office.": "અમારી પાસે કોઈ ભૌતિક કાર્યાલય નથી.",
+          "We operate online.": "અમે ઓનલાઇન કામ કરીએ છીએ.",
+          "We do not have a physical office. We operate online.": "અમારી પાસે કોઈ ભૌતિક કાર્યાલય નથી. અમે ઓનલાઇન કામ કરીએ છીએ.",
+          "Official Website": "સત્તાવાર વેબસાઇટ",
+          "Visit Our Company": "અમારી કંપની જુઓ",
+          "Send us your requirements": "તમારી જરૂરિયાતો અમને મોકલો",
+          "Use the form and we will get back to you on WhatsApp.": "ફોર્મનો ઉપયોગ કરો અને અમે WhatsApp પર તમારો સંપર્ક કરીશું.",
+          "Please fill in all required fields correctly.": "કૃપા કરીને તમામ જરૂરી ફીલ્ડ્સ યોગ્ય રીતે ભરો.",
+          "Name": "નામ",
+          "Mobile Number": "મોબાઇલ નંબર",
+          "What do you need?": "તમારે શું જોઈએ છે?",
+          "Select your requirement": "તમારી જરૂરિયાત પસંદ કરો",
+          "Need product information": "ઉત્પાદનની માહિતી જોઈએ છે",
+          "Need sample": "સેમ્પલ જોઈએ છે",
+          "Need bulk quantity": "બલ્ક જથ્થો જોઈએ છે",
+          "Message / Requirement": "મેસેજ / જરૂરિયાત",
+          "Message/Requirement": "મેસેજ / જરૂરિયાત",
+          "Enter your full name": "તમારું પૂરું નામ દાખલ કરો",
+          "Enter 10 digit mobile number": "10 અંકનો મોબાઇલ નંબર દાખલ કરો",
+          "Please type your requirement...": "કૃપા કરીને તમારી જરૂરિયાત લખો...",
+          "Send on WhatsApp": "WhatsApp પર મોકલો",
+          "By sending this message, you agree to be contacted on WhatsApp.": "આ સંદેશ મોકલીને, તમે WhatsApp પર સંપર્ક કરવા માટે સંમત થાઓ છો.",
+          "A SMALL STEP,": "એક નાનું પગલું,",
+          "A SMALL STEP, A STRONGER, GREENER TOMORROW.": "એક નાનું પગલું, એક મજબૂત, હરિયાળી આવતીકાલ.",
+          "A STRONGER, GREENER TOMORROW.": "એક મજબૂત, હરિયાળી આવતીકાલ.",
+          "Quick Links": "ઝડપી લિંક્સ",
+          "Follow Us": "અમને ફોલો કરો",
+          "All rights reserved.": "બધા હકો અમારી પાસે રાખેલા છે.",
+          "Developed by": "દ્વારા વિકસિત",
+          "Select any language you're comfortable with": "તમારી અનુકૂળતા મુજબ કોઈપણ ભાષા પસંદ કરો",
+          "CANCEL": "રદ કરો",
+          "OK": "બરાબર"
+        }
+      };
+
+      /* =========================================================
+         SAVE ORIGINAL WEBSITE TEXT
+      ========================================================= */
+
+      const originalTextNodes = [];
+      const originalPlaceholders = [];
+      const originalOptions = [];
+      let originalDocumentTitle = document.title;
+
+      function saveOriginalContent() {
+
+        const walker = document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode: function (node) {
+              if (
+                node.parentElement &&
+                (
+                  node.parentElement.closest("#languageOverlay") ||
+                  node.parentElement.closest("script") ||
+                  node.parentElement.closest("style")
+                )
+              ) {
+                return NodeFilter.FILTER_REJECT;
+              }
+
+              if (node.nodeValue.trim() === "") {
+                return NodeFilter.FILTER_REJECT;
+              }
+
+              return NodeFilter.FILTER_ACCEPT;
+            }
+          }
+        );
+
+        let node;
+        while (node = walker.nextNode()) {
+          originalTextNodes.push({
+            node: node,
+            text: node.nodeValue
+          });
+        }
+
+        document.querySelectorAll("input, textarea").forEach(function (element) {
+          originalPlaceholders.push({
+            element: element,
+            placeholder: element.getAttribute("placeholder") || ""
+          });
+        });
+
+        document.querySelectorAll("select option").forEach(function (option) {
+          originalOptions.push({
+            element: option,
+            text: option.textContent
+          });
+        });
+      }
+
+      function buildRegexForKey(key) {
+        const words = key.trim().split(/\s+/);
+        const patternParts = words.map(function (w) {
+          let escaped = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          escaped = escaped.replace(/\\?[-–—]/g, '[-–—]');
+          escaped = escaped.replace(/\\?['’‘]/g, "['’‘]");
+          escaped = escaped.replace(/\\?["“”]/g, '["“”]');
+          return escaped;
+        });
+        return new RegExp(patternParts.join('[\\s\\u00a0]+'), 'gi');
+      }
+
+      /* =========================================================
+         TRANSLATE PAGE
+      ========================================================= */
+
+      function translatePage(language) {
+
+        /* ENGLISH */
+        if (language === "en") {
+          document.title = originalDocumentTitle;
+
+          originalTextNodes.forEach(function (item) {
+            item.node.nodeValue = item.text;
+          });
+
+          originalPlaceholders.forEach(function (item) {
+            item.element.setAttribute("placeholder", item.placeholder);
+          });
+
+          originalOptions.forEach(function (item) {
+            item.element.textContent = item.text;
+          });
+
+          return;
+        }
+
+        const dictionary = window.translations[language];
+        if (!dictionary) return;
+
+        // Sort keys by descending length
+        const sortedKeys = Object.keys(dictionary).filter(function (k) {
+          return k.trim().length > 0;
+        }).sort(function (a, b) {
+          return b.length - a.length;
+        });
+
+        // Pre-compile regexes for performance
+        const compiledRules = sortedKeys.map(function (k) {
+          return {
+            regex: buildRegexForKey(k),
+            replacement: dictionary[k]
+          };
+        });
+
+        /* DOCUMENT TITLE */
+        let titleText = originalDocumentTitle;
+        compiledRules.forEach(function (rule) {
+          titleText = titleText.replace(rule.regex, rule.replacement);
+        });
+        document.title = titleText;
+
+        /* TEXT NODES */
+        originalTextNodes.forEach(function (item) {
+          let text = item.text;
+          compiledRules.forEach(function (rule) {
+            text = text.replace(rule.regex, rule.replacement);
+          });
+          item.node.nodeValue = text;
+        });
+
+        /* PLACEHOLDERS */
+        originalPlaceholders.forEach(function (item) {
+          let placeholder = item.placeholder;
+          compiledRules.forEach(function (rule) {
+            placeholder = placeholder.replace(rule.regex, rule.replacement);
+          });
+          item.element.setAttribute("placeholder", placeholder);
+        });
+
+        /* SELECT OPTIONS */
+        originalOptions.forEach(function (item) {
+          let optText = item.text;
+          compiledRules.forEach(function (rule) {
+            optText = optText.replace(rule.regex, rule.replacement);
+          });
+          item.element.textContent = optText;
+        });
+      }
+
+      /* =========================================================
+         OPEN POPUP
+      ========================================================= */
+
+      function openLanguagePopup() {
+        languageOverlay.classList.add("show");
+        const currentLanguage = localStorage.getItem("selectedLanguage") || "en";
+        languageOptions.forEach(function (option) {
+          option.classList.toggle("active", option.dataset.language === currentLanguage);
+        });
+      }
+
+      /* =========================================================
+         LANGUAGE BUTTON
+      ========================================================= */
+
+      if (languageBtn) {
+        languageBtn.addEventListener("click", openLanguagePopup);
+      }
+
+      /* =========================================================
+         SELECT LANGUAGE
+      ========================================================= */
+
+      languageOptions.forEach(function (option) {
+        option.addEventListener("click", function () {
+          languageOptions.forEach(function (item) {
+            item.classList.remove("active");
+          });
+          option.classList.add("active");
+        });
+      });
+
+      /* =========================================================
+         CANCEL
+      ========================================================= */
+
+      if (languageCancel) {
+        languageCancel.addEventListener("click", function () {
+          languageOverlay.classList.remove("show");
+        });
+      }
+
+      /* =========================================================
+         OK
+      ========================================================= */
+
+      if (languageOk) {
+        languageOk.addEventListener("click", function () {
+          const selected = document.querySelector(".language-option.active");
+          if (!selected) return;
+          const language = selected.dataset.language;
+          localStorage.setItem("selectedLanguage", language);
+          translatePage(language);
+          languageOverlay.classList.remove("show");
+        });
+      }
+
+      /* =========================================================
+         FIRST VISIT POPUP
+      ========================================================= */
+
+      saveOriginalContent();
+
+      const savedLanguage = localStorage.getItem("selectedLanguage");
+
+      if (savedLanguage) {
+        translatePage(savedLanguage);
+      } else {
+        /* English default */
+        languageOptions.forEach(function (option) {
+          option.classList.toggle("active", option.dataset.language === "en");
+        });
+
+        setTimeout(function () {
+          languageOverlay.classList.add("show");
+        }, 300);
+      }
+
+    });
+  </script>
+</body>
+
+</html>
